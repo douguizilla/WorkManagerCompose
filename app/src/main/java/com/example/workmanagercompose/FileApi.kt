@@ -13,6 +13,8 @@ interface FileApi {
         val instace by lazy {
             Retrofit.Builder()
                 .baseUrl("https://pl-coding.com")
+                .build()
+                .create(FileApi::class.java)
         }
     }
 }
