@@ -62,4 +62,13 @@ dependencies {
     //compose
     implementation "androix.lifecycle:lifecycle-viewmodel-compose:2.4.1"
     implementation "androix.compose.runtime:runtime-livedata:1.2.0-alpha03"
+
+    //Coil
+    implementation "io.coil-kt:coil-compose:1.4.0"
+
+    //Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit2:2.9.0"
 }
