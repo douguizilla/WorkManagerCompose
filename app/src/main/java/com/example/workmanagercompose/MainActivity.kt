@@ -10,10 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.work.Constraints
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.*
 import com.example.workmanagercompose.ui.theme.WorkManagerComposeTheme
 import java.time.Duration
 
@@ -28,6 +25,13 @@ class MainActivity : ComponentActivity() {
                     )
                     .build()
             )
+            .build()
+
+        val colorFilterWorker = OneTimeWorkRequestBuilder<ColorFilterWorker>()
+            .build()
+
+        val workManager = WorkManager.getInstance(applicationContext)
+
         setContent {
             WorkManagerComposeTheme {
 
