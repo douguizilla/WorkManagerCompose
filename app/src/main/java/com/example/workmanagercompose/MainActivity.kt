@@ -3,15 +3,25 @@ package com.example.workmanagercompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.core.net.toUri
 import androidx.work.Constraints
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import coil.compose.rememberImagePainter
 import com.example.workmanagercompose.ui.theme.WorkManagerComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -60,7 +70,22 @@ class MainActivity : ComponentActivity() {
 
                     filterUri ?: downloadUri
                 }
-
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    imageUri?.let { uri ->
+                        Image(
+                            painter = rememberImagePainter(
+                                data = uri
+                            ),
+                            contentDescription = null,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        
+                    }
+                }
 
             }
         }
